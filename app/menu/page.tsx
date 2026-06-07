@@ -1,8 +1,7 @@
 "use client"
 
 import React from "react";
-import {use, useState} from "react";
-import {useEffect} from "react";
+import {useState , useEffect} from "react";
 import {useRouter} from "next/navigation";
 
 // メニューJsonデータ受け取り用 型
@@ -23,7 +22,7 @@ export default function MenuList() {
     useEffect(() => {
         const fetchData = async () => {
 
-            console.log("通信開始");
+            console.log("フェッチ開始");
 
             try{
                 
@@ -52,11 +51,7 @@ export default function MenuList() {
     const addToCart = async (id : number) => {
         
         try{
-            const response = await fetch(springUrl + `/cart/order/add?id=${id}`, { method: 'POST' });
-
-            if(!response.ok){
-                console.log("エラー");
-            }
+            await fetch(springUrl + `/cart/order/add?id=${id}`, { method: 'POST' });
 
         }catch(error){
             console.log("通信失敗", error);
@@ -66,11 +61,7 @@ export default function MenuList() {
     const clear = async () => {
 
         try{
-            const response = await fetch(springUrl + "/cart/all/clear");
-
-            if(!response.ok){
-                console.log("エラー2");
-            }
+            await fetch(springUrl + "/cart/all/clear");
 
         }catch(error){
             console.log("通信失敗" , error);

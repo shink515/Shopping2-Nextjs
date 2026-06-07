@@ -17,8 +17,6 @@ type Order = {
 export default function CartList(){
     const router = useRouter();
     const[orders, setOrders] = useState<Order[]>();
-    const[quantity, setQuantity] = useState();
-    const[sum, setSum] = useState();
 
     // SpringBootプロジェクト パス
     const springUrl = "http://localhost:8080";
@@ -83,7 +81,7 @@ export default function CartList(){
         }
     }
 
-    // セッションのデータをDBに反映させる
+    // 一時保存ボタン押下 → セッションのデータをDBに反映させる
     const registCart = async () => {
 
         try{
