@@ -1,1 +1,0 @@
-# Shopping2-Nextjs
